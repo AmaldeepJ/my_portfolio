@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Amaldeep Jithesh, B.Tech Computer Science student at VIT Vellore.">
+    <title>Amaldeep Jithesh | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f7f8fa;
+            --surface: #ffffff;
+            --text: #172033;
+            --muted: #687386;
+            --primary: #142b4a;
+            --accent: #b89555;
+            --border: #e3e7ed;
+            --shadow: 0 8px 30px rgba(20, 43, 74, 0.07);
+        }
+
+        [data-theme="dark"] {
+            --bg: #101827;
+            --surface: #182438;
+            --text: #edf2f8;
+            --muted: #aab6c7;
+            --primary: #d5e3f5;
+            --accent: #d2ad6c;
+            --border: #2b3a50;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        /* Navigation */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle,
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(184,149,85,0.12), transparent 30%),
+                var(--bg);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.7rem, 6vw, 4.5rem);
+            line-height: 1.15;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--surface);
+            border: 1px solid var(--primary);
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: #d5e3f5;
+            color: #101827;
+            border-color: #d5e3f5;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-avatar {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            border: 8px solid var(--surface);
+            box-shadow: var(--shadow);
+            margin: auto;
+            outline: 1px solid var(--accent);
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 35px;
+        }
+
+        .about-card,
+        .info-card,
+        .skill-card,
+        .project-card,
+        .goal-card,
+        .contact-card {
+            background: var(--surface);
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 18px;
+            color: var(--primary);
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            color: var(--muted);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--text);
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 18px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 7px 12px;
+            margin: 5px 4px 5px 0;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* Projects */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Progress */
+
+        .timeline {
+            border-left: 2px solid var(--accent);
+            margin-left: 10px;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -38px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+        }
+
+        /* Goals */
+
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .goal-card i {
+            font-size: 1.7rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .goal-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .goal-card p {
+            color: var(--muted);
+        }
+
+        /* Contact */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 18px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin: 18px 0;
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .contact-detail i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        form label {
+            display: block;
+            margin: 13px 0 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        form button {
+            margin-top: 18px;
+        }
+
+        #form-status {
+            color: var(--accent);
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--accent);
+        }
+
+        /* Reveal animation */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+
+        @media (max-width: 850px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .hero-content {
+                gap: 25px;
+            }
+
+            .skills-grid,
+            .goal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                padding: 20px 5%;
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero-content,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-avatar {
+                width: 190px;
+                height: 190px;
+                font-size: 3.8rem;
+                grid-row: 1;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .project-grid,
+            .skills-grid,
+            .goal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Print resume */
+
+        #print-resume {
+            display: none;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-family: Arial, sans-serif;
+            }
+
+            body > * {
+                display: none !important;
+            }
+
+            #print-resume {
+                display: block !important;
+                padding: 35px;
+                color: black;
+            }
+
+            #print-resume h1 {
+                font-size: 28px;
+                margin-bottom: 5px;
+            }
+
+            #print-resume h2 {
+                font-size: 17px;
+                margin: 20px 0 8px;
+                border-bottom: 1px solid #999;
+            }
+
+            #print-resume p,
+            #print-resume li {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+            #print-resume ul {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">AJ.</a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Progress</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+                    <p class="eyebrow">Welcome to my portfolio</p>
+
+                    <h1>Amaldeep <span>Jithesh</span></h1>
+
+                    <p class="hero-description">
+                        First-year Computer Science Engineering student at VIT Vellore,
+                        interested in programming, Artificial Intelligence and emerging technologies.
+                        Focused on learning, building and exploring new possibilities.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                        <button onclick="window.print()" class="btn btn-outline">
+                            <i class="fas fa-download"></i> Download Resume
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-avatar" aria-label="AJ initials">AJ</div>
+
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="container reveal">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">A little introduction about myself.</p>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <p>
+                            I am a first-year B.Tech Computer Science and Engineering student
+                            at Vellore Institute of Technology (VIT), Vellore.
+                        </p>
+
+                        <p>
+                            I have an interest in programming, Artificial Intelligence,
+                            emerging technologies and problem-solving. I enjoy learning
+                            new concepts and developing my technical abilities through
+                            practical projects.
+                        </p>
+
+                        <p>
+                            My goal is to build a strong foundation in computer science
+                            while exploring how technology can be applied to solve
+                            real-world problems.
+                        </p>
+
+                        <p>
+                            I am also interested in Electronics and Communication Engineering
+                            and the semiconductor industry.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Personal Information</h3>
+
+                        <div class="info-item">
+                            <strong>Name</strong>
+                            Amaldeep Jithesh
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Degree</strong>
+                            B.Tech Computer Science Engineering
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Institution</strong>
+                            VIT Vellore
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Current Year</strong>
+                            First Year
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container reveal">
+                <h2 class="section-title">Skills & Interests</h2>
+                <p class="section-subtitle">
+                    Technologies and areas I am currently learning and exploring.
+                </p>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <h3><i class="fas fa-code"></i> Programming</h3>
+                        <span class="skill-tag">Python - Beginner</span>
+                        <span class="skill-tag">C - Learning</span>
+                        <span class="skill-tag">Algorithms - Basics</span>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3><i class="fas fa-brain"></i> Technology</h3>
+                        <span class="skill-tag">Artificial Intelligence</span>
+                        <span class="skill-tag">Machine Learning Basics</span>
+                        <span class="skill-tag">Emerging Technologies</span>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Hindi</span>
+                        <span class="skill-tag">Malayalam</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container reveal">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">
+                    A selection of projects and ideas I have worked on.
+                </p>
+
+                <div class="project-grid">
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+
+                        <h3>Food Waste Management Application</h3>
+
+                        <p>
+                            A project concept that uses historical food consumption
+                            data and machine learning to predict daily food preparation
+                            quantities. The objective is to reduce food wastage through
+                            better demand forecasting.
+                        </p>
+
+                        <div>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Prediction</span>
+                        </div>
+
+                        <br>
+
+                        <a href="https://github.com/AmaldeepJ"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="project-link">
+                            View on GitHub <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+
+                        <h3>More Projects Coming Soon</h3>
+
+                        <p>
+                            I am continuously learning and exploring new technologies.
+                            This section will be updated as I develop more projects
+                            and gain practical experience.
+                        </p>
+
+                        <span class="skill-tag">Learning</span>
+                        <span class="skill-tag">Development</span>
+                        <span class="skill-tag">Exploration</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements / Progress -->
+        <section id="achievements">
+            <div class="container reveal">
+                <h2 class="section-title">My Learning Journey</h2>
+                <p class="section-subtitle">
+                    My current academic and technical progress.
+                </p>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <h3>B.Tech in Computer Science Engineering</h3>
+                        <p>
+                            Currently pursuing my undergraduate degree at
+                            VIT Vellore.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Programming Foundations</h3>
+                        <p>
+                            Building a foundation in Python and learning
+                            fundamental programming concepts.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>Introduction to Algorithms</h3>
+                        <p>
+                            Exploring basic data structures, searching
+                            and sorting algorithms.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Goals -->
+        <section id="goals">
+            <div class="container reveal">
+                <h2 class="section-title">Career Goals</h2>
+                <p class="section-subtitle">
+                    Areas I hope to explore and develop in the future.
+                </p>
+
+                <div class="goal-grid">
+
+                    <div class="goal-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI & Machine Learning</h3>
+                        <p>
+                            Develop a deeper understanding of AI and ML
+                            and explore their practical applications.
+                        </p>
+                    </div>
+
+                    <div class="goal-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Software Development</h3>
+                        <p>
+                            Strengthen my programming skills and contribute
+                            to useful technology projects.
+                        </p>
+                    </div>
+
+                    <div class="goal-card">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Emerging Technologies</h3>
+                        <p>
+                            Explore areas such as electronics, semiconductors
+                            and the intersection of hardware and software.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container reveal">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Feel free to connect with me.
+                </p>
+
+                <div class="contact-grid">
+
+                    <div class="contact-card">
+                        <h3>Contact Information</h3>
+
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:amaldeepjithesh1@gmail.com">
+                                amaldeepjithesh1@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/AmaldeepJ"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                github.com/AmaldeepJ
+                            </a>
+                        </div>
+
+                        <div class="contact-detail">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/amaldeep-jithesh-9ab777422/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                LinkedIn Profile
+                            </a>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://github.com/AmaldeepJ"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/amaldeep-jithesh-9ab777422/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+
+                            <a href="mailto:amaldeepjithesh1@gmail.com"
+                               aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Send a Message</h3>
+
+                        <form id="contactForm">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name"
+                                   placeholder="Enter your name" required>
+
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email"
+                                   placeholder="Enter your email" required>
+
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message"
+                                      placeholder="Write your message..." required></textarea>
+
+                            <button type="submit" class="btn btn-primary">
+                                Send Message <i class="fas fa-paper-plane"></i>
+                            </button>
+
+                            <p id="form-status" role="status"></p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Printable Resume -->
+    <div id="print-resume">
+        <h1>Amaldeep Jithesh</h1>
+        <p>B.Tech Computer Science Engineering Student | VIT Vellore</p>
+        <p>Email: amaldeepjithesh1@gmail.com</p>
+        <p>GitHub: https://github.com/AmaldeepJ</p>
+        <p>LinkedIn: https://www.linkedin.com/in/amaldeep-jithesh-9ab777422/</p>
+
+        <h2>Profile</h2>
+        <p>
+            First-year Computer Science Engineering student at VIT Vellore,
+            interested in programming, Artificial Intelligence and emerging
+            technologies. Focused on developing technical skills and building
+            a strong foundation in computer science.
+        </p>
+
+        <h2>Education</h2>
+        <p>B.Tech Computer Science Engineering — VIT Vellore</p>
+
+        <h2>Technical Skills</h2>
+        <ul>
+            <li>Python — Beginner</li>
+            <li>C — Learning</li>
+            <li>Fundamental algorithms</li>
+            <li>Machine Learning — Basics</li>
+        </ul>
+
+        <h2>Project</h2>
+        <p>
+            Food Waste Management Application: A project concept using
+            historical consumption data and machine learning to predict
+            food preparation quantities and reduce food waste.
+        </p>
+
+        <h2>Interests</h2>
+        <p>Artificial Intelligence, Machine Learning, Software Development,
+           Electronics and Semiconductor Technology.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Amaldeep Jithesh. All Rights Reserved.</p>
+            <a href="#home" class="back-top">
+                Back to Top <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = themeToggle.querySelector("i");
+
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const preferredDark = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        const initialTheme = savedTheme || (preferredDark ? "dark" : "light");
+
+        document.documentElement.setAttribute("data-theme", initialTheme);
+        updateThemeIcon(initialTheme);
+
+        function updateThemeIcon(theme) {
+            themeIcon.className = theme === "dark"
+                ? "fas fa-sun"
+                : "fas fa-moon";
+        }
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme =
+                document.documentElement.getAttribute("data-theme");
+
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("portfolio-theme", newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("show");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.innerHTML = isOpen
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu after clicking a link
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("show");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        revealElements.forEach(element => observer.observe(element));
+
+        // Active navigation link
+        const sections = document.querySelectorAll("main section");
+        const navItems = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let currentSection = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute("id");
+                }
+            });
+
+            navItems.forEach(link => {
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + currentSection) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // Contact form
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("form-status");
+
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                formStatus.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            const subject = encodeURIComponent("Portfolio Contact Message");
+            const body = encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\n\nMessage:\n" + message
+            );
+
+            formStatus.textContent =
+                "Your email app will open with your message prepared.";
+
+            window.location.href =
+                "mailto:amaldeepjithesh1@gmail.com?subject=" +
+                subject + "&body=" + body;
+        });
+    </script>
+
+</body>
+</html>
